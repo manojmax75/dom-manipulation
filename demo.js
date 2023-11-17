@@ -45,12 +45,45 @@
 
 //edit the li by tag name
 
-var li= document.getElementsByTagName("li");
-console.log(li[1])
-li[2].style.color="green"
-li[1].style.backgroundColor="#f4f4f4"
+// var li= document.getElementsByTagName("li");
+// console.log(li[1])
+// li[2].style.color="green"
+// li[1].style.backgroundColor="#f4f4f4"
 
-for(let i=0;i<li.length;i++){
-    li[i].style.fontWeight="bold"
-    li[i].style.backgroundColor="#f4f4f4"
+// for(let i=0;i<li.length;i++){
+//     li[i].style.fontWeight="bold"
+//     li[i].style.backgroundColor="#f4f4f4"
+// }
+
+
+//QUERY SELECTOR 
+
+var header=document.querySelector("#main-header")
+header.style.borderBottom="solid 5px red" 
+
+var input=document.querySelector("input")
+input.value="hello world"
+
+var submit=document.querySelector('input[type="submit"]')
+submit.value="send"
+
+var si=document.querySelector('.list-group-item:nth-child(1)')
+si.style.color="red"
+
+
+
+
+
+
+
+
+
+const item=document.querySelectorAll("li")
+console.log(item)
+item[1].style.backgroundColor="green"
+item[2].style.display="none"
+for(let i=0;i<item.length;i++){
+   if(i%2===0){
+    item[i].style.fontWeight="bold"
+   }
 }
