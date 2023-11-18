@@ -22,9 +22,18 @@ function localstore(e){
         }
         myobj_serialize=JSON.stringify(myobj);
         localStorage.setItem(email1.value,myobj_serialize)
+        
+        
 
-        console.log(JSON.parse(localStorage.getItem("myuser")))
-       
+        console.log(JSON.parse(localStorage.getItem(email1.value)).email)
+        var textvalue=JSON.parse(localStorage.getItem(email1.value)).name+" - "+JSON.parse(localStorage.getItem(email1.value)).email+" - "+JSON.parse(localStorage.getItem(email1.value)).phone_number
+        
+        var listItem=document.querySelector("#users");
+        var li=document.createElement("li")
+        li.classList.add("item")
+        var text=document.createTextNode(textvalue)
+        li.appendChild(text)
+        listItem.appendChild(li)
     }
 
 }
