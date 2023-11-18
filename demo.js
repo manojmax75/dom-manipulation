@@ -40,6 +40,14 @@ function localstore(e){
          button.style.maxHeight="40px"
          button.appendChild(document.createTextNode("X"))
          li.appendChild(button)
+
+         var edit_button=document.createElement("button")
+         edit_button.className=" btn-primary btn-sm float-right edit"
+         edit_button.id="edit-size"
+         edit_button.style.maxWidth="80px"
+         edit_button.style.maxHeight="40px"
+         edit_button.appendChild(document.createTextNode("edit"))
+         li.appendChild(edit_button)
         
 
         listItem.appendChild(li)
@@ -47,14 +55,24 @@ function localstore(e){
 
 }
 var listItem=document.querySelector("#users");
-listItem.addEventListener("click",deletefn)
+listItem.addEventListener("click",delete_edit)
 
-function deletefn(e){
+function delete_edit(e){
     e.preventDefault()
     if(e.target.classList.contains("delete")){
-        var li=e.target.parentElement;
+        let li=e.target.parentElement;
         let text=li.firstChild.textContent.split(" - ")
+        localStorage.removeItem(text[1])
+        listItem.removeChild(li)
+    }else if(e.target.classList.contains("edit")){
+        let li=e.target.parentElement;
+        let text=li.firstChild.textContent.split(" - ")
+        name1.value=text[0]
+        email1.value=text[1]
+        phonenumber.value=text[2]
         localStorage.removeItem(text[1])
         listItem.removeChild(li)
     }
 }
+
+
