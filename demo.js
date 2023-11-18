@@ -14,8 +14,14 @@ function localstore(e){
             msg.remove()},3000
         )
     }else{
-        localStorage.setItem("email",email1.value)
-        localStorage.setItem("name",name1.value)
+        let myobj={
+            name:name1.value,
+            email1:email1.value
+        }
+        myobj_serialize=JSON.stringify(myobj);
+        localStorage.setItem("myuser",myobj_serialize)
+
+        console.log(JSON.parse(localStorage.getItem("myuser")))
        
     }
 
