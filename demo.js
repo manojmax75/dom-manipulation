@@ -33,8 +33,28 @@ function localstore(e){
         li.classList.add("item")
         var text=document.createTextNode(textvalue)
         li.appendChild(text)
+        var button=document.createElement("button")
+         button.className=" btn-danger btn-sm float-right delete"
+         button.id="size"
+         button.style.maxWidth="80px"
+         button.style.maxHeight="40px"
+         button.appendChild(document.createTextNode("X"))
+         li.appendChild(button)
+        
+
         listItem.appendChild(li)
     }
 
 }
+var listItem=document.querySelector("#users");
+listItem.addEventListener("click",deletefn)
 
+function deletefn(e){
+    e.preventDefault()
+    if(e.target.classList.contains("delete")){
+        var li=e.target.parentElement;
+        let text=li.firstChild.textContent.split(" - ")
+        localStorage.removeItem(text[1])
+        listItem.removeChild(li)
+    }
+}
